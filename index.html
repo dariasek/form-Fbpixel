@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fancy.css">
+    <title>FB pixel</title>
+</head>
+<body>
+    <form class="form">
+        <div class="form-container">
+            <div class="inputs">
+                <div>
+                    <span class="name-span">name</span>
+                    <input id="name" type="text" placeholder="">
+                </div>
+                <div>
+                    <span class="email-span">email</span>
+                    <input id="email" type="email" placeholder="">
+                </div>
+                <div>
+                    <span class="web-span">web</span>
+                    <input id="web" type="url" placeholder="">
+                </div>
+            </div>
+            <div class="message-container">
+                <div class="message">
+                    <textarea id="message" rows="3" cols="30"></textarea>
+
+                    <div class="message-span">message</div>
+                    <div class="message-line"></div>
+                    <div class="message-line"></div>
+                    <div class="message-line"></div>
+                </div>
+                <div class="btn">
+                    <button type="submit">send</button>
+                </div>
+            </div>
+        </div>
+    </form>    
+    <script>
+        
+        let fbpx = window.location.href.split('fbpx=')[1];
+        let pixelId = fbpx ? fbpx : '123456789123456';
+
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod? n.callMethod.apply(n,arguments):n.queue.push(arguments)}; if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0'; n.queue=[];t=b.createElement(e);t.async=!0; t.src=v;s=b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t,s)}(window, document,'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', pixelId);
+        fbq('track', 'PageView'); fbq('track', 'ViewContent'); fbq('track', 'Lead');
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
